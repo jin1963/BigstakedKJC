@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Big KJC Stake V3</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #000;
+      color: #ffd700;
+      font-family: Arial, sans-serif;
+      padding: 20px 14px 40px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #0d0d0d;
+      border: 2px solid #9a7610;
+      border-radius: 22px;
+      padding: 22px 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 0 16px rgba(255, 215, 0, 0.08);
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 16px;
+      text-align: center;
+      color: #ffd700;
+      line-height: 1.2;
+    }
+
+    h1 { font-size: 38px; }
+    h2 { font-size: 31px; }
+    h3 { font-size: 28px; }
+
+    .wallet-box,
+    .info-line,
+    .stake-box,
+    #stakes {
+      font-size: 22px;
+      line-height: 1.55;
+      word-break: break-word;
+    }
+
+    .wallet-box,
+    .info-line {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    button {
+      width: 100%;
+      min-height: 64px;
+      border: none;
+      border-radius: 16px;
+      background: #ffd700;
+      color: #111;
+      font-size: 22px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    .stake-box {
+      background: #151515;
+      border: 1px solid #6f5710;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .sub {
+      font-size: 18px;
+      color: #d8bf5f;
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    .status-ok { color: #8dff9b; }
+    .status-bad { color: #ff7d7d; }
+
+    @media (max-width: 560px) {
+      h1 { font-size: 34px; }
+      h2 { font-size: 28px; }
+      h3 { font-size: 24px; }
+      .wallet-box, .info-line, .stake-box, #stakes { font-size: 20px; }
+      button { font-size: 20px; min-height: 58px; }
+      .btn-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="card">
+      <h1>Big KJC Stake V3</h1>
+      <div id="wallet" class="wallet-box status-bad">❌ Wallet not connected</div>
+      <button id="btnConnect">Connect Wallet</button>
+    </div>
+
+    <div class="card">
+      <h2>Auto Stake MAX</h2>
+      <div id="token" class="info-line">Token : -</div>
+      <div id="balance" class="info-line">Balance : -</div>
+      <div id="allowance" class="info-line">Allowance : -</div>
+      <div class="sub">ระบบจะเลือก KJC ใหม่ก่อน ถ้าไม่มีค่อยใช้ KJC เก่า</div>
+
+      <div class="btn-row">
+        <button id="btnApprove">Approve</button>
+        <button id="btnStake">Stake MAX</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Your Stakes</h3>
+      <div id="stakes">Connect wallet first</div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.4/dist/web3.min.js"></script>
+  <script src="config.js"></script>
+  <script src="abi.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
